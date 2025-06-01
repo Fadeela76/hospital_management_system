@@ -59,8 +59,26 @@ Choose the desired option by entering the number.
 Follow prompts to enter required information.
 
 ## Snapshots
+1. Main Menu
+![Main Menu](media/mainMenu.png)
 
-![Main Menu](
+2. Add Patient
+![Add Pateint](media/addPatient.png)
+
+3. View Patients
+![View Patient](media/viewPatients.png)
+
+4. View Doctors
+![View Doctors](media/viewDoctors.png)
+
+5. Book Appontments
+![Book Appointment](media/bookAppointment.png)
+
+6. Exit System
+![Exit Sytem](media/exitSystem.png)
+
+7. Database Schema
+![Database Schema](media/db_schema.png)
 
 ## Future Improvements
 
