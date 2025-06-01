@@ -40,7 +40,7 @@ This application allows managing patients, doctors, and booking appointments thr
 4. Compile the Java source files:
 
    ---bash
-      javac -cp .:mysql-connector-java-x.x.x.jar org/example/*.java
+      javac -cp .:mysql-connector-java-x.x.x.jar org/example/*.java<br>
       (Replace mysql-connector-java-x.x.x.jar with the actual MySQL connector JAR filename)
 5. Run the application:
 
