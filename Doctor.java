@@ -35,11 +35,11 @@ public class Doctor {
         }
     }
 
-    public boolean getDoctorById(int id){
-        String query = "SELECT * FROM doctors WHERE id = ?";
+    public boolean getDoctorById(int d_id){
+        String query = "SELECT * FROM doctors WHERE d_id = ?";
         try{
             PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setInt(1, id);
+            preparedStatement.setInt(1, d_id);
             ResultSet resultSet = preparedStatement.executeQuery();
             if(resultSet.next()){
                 return true;
