@@ -39,9 +39,9 @@ This application allows managing patients, doctors, and booking appointments thr
    private static final String password = "your_password";
 4. Compile the Java source files:
 
----bash
-javac -cp .:mysql-connector-java-x.x.x.jar org/example/*.java
-(Replace mysql-connector-java-x.x.x.jar with the actual MySQL connector JAR filename)
+   ---bash
+      javac -cp .:mysql-connector-java-x.x.x.jar org/example/*.java
+      (Replace mysql-connector-java-x.x.x.jar with the actual MySQL connector JAR filename)
 5. Run the application:
 
 ---bash
