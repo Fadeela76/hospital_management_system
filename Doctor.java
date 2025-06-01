@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Scanner;
 
 public class Doctor {
     // Connection object to interact with the database
@@ -15,10 +14,12 @@ public class Doctor {
         this.connection = connection;
     }
 
-    //This method fetches and displays all doctors from the 'doctors' table.
+    /**
+     * This method fetches and displays all doctors from the 'doctors' table.
+     */
     public void viewDoctors(){
-        String query = "select * from doctors";
-        try{
+        String query = "SELECT * FROM doctors";
+        try {
             // Prepare and execute the SQL query
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             ResultSet resultSet = preparedStatement.executeQuery();
@@ -40,15 +41,20 @@ public class Doctor {
                 System.out.println("+------------+--------------------+------------------+");
             }
 
-        }catch (SQLException e){
-            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();  // Print error if query fails
         }
     }
-    
-    //This method checks if a doctor with the given ID exists in the 'doctors' table.
+
+    /**
+     * This method checks if a doctor with the given ID exists in the 'doctors' table.
+     * 
+     * @param d_id Doctor ID to search for
+     * @return true if doctor exists, false otherwise
+     */
     public boolean getDoctorById(int d_id){
         String query = "SELECT * FROM doctors WHERE d_id = ?";
-        try{
+        try {
             // Prepare the query with the doctor ID
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setInt(1, d_id);
@@ -59,11 +65,12 @@ public class Doctor {
             // Return true if doctor is found
             if(resultSet.next()){
                 return true;
-            }else{
+            } else {
                 return false;
             }
-        }catch (SQLException e){
-            e.printStackTrace();
+
+        } catch (SQLException e) {
+            e.printStackTrace();  // Print error if something goes wrong
         }
 
         // If an exception occurs or doctor is not found
