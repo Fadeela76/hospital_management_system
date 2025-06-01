@@ -3,26 +3,20 @@
 A simple console-based Hospital Management System implemented in Java using JDBC and MySQL.  
 This application allows managing patients, doctors, and booking appointments through a command-line interface.
 
----
-
 ## Features
 
 - Add new patients  
 - View all patients  
 - View all doctors  
 - Book appointments between patients and doctors  
-- Basic input validation (checks for existing patients/doctors before booking)  
-
----
-
+- Basic input validation (checks for existing patients/doctors before booking)
+- 
 ## Technologies Used
 
 - Java (JDK 8+)  
 - JDBC for database connectivity  
 - MySQL as the database  
 - Console-based user interface  
-
----
 
 ## Prerequisites
 
@@ -32,8 +26,6 @@ This application allows managing patients, doctors, and booking appointments thr
   - `patients (p_id INT PRIMARY KEY, name VARCHAR, age INT, gender VARCHAR)`  
   - `doctors (d_id INT PRIMARY KEY, name VARCHAR, specialization VARCHAR)`  
   - `appointments (appointment_id INT PRIMARY KEY, p_id INT, d_id INT, appointment_date DATE)`  
-
----
 
 ## Setup Instructions
 
@@ -45,4 +37,38 @@ This application allows managing patients, doctors, and booking appointments thr
 private static final String url = "jdbc:mysql://localhost:3306/hospital_management_system";
 private static final String username = "root";
 private static final String password = "your_password";
+4. Compile the Java source files:
+
+---bash
+javac -cp .:mysql-connector-java-x.x.x.jar org/example/*.java
+(Replace mysql-connector-java-x.x.x.jar with the actual MySQL connector JAR filename)
+5. Run the application:
+
+---bash
+java -cp .:mysql-connector-java-x.x.x.jar org.example.Main
+
+## Usage
+
+Upon running, you will see a menu:
+1. Add Patient  
+2. View Patients  
+3. View Doctors  
+4. Book Appointment  
+5. Exit  
+Choose the desired option by entering the number.
+Follow prompts to enter required information.
+
+## Future Improvements
+
+1. Add update and delete operations for patients and doctors.
+2. Add input validation and error handling improvements.
+3. Implement user authentication for different roles (admin, doctor, patient).
+4. Build a GUI or web interface for better usability.
+5. Use DAO design pattern and separate business logic from presentation.
+
+## License
+This project is open source and free to use.
+
+## Author
+https://github.com/Fadeela76
 
