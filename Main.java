@@ -77,7 +77,17 @@ public class Main{
         int d_id = scanner.nextInt();
         System.out.print("Enter appointment date (YYYY-MM-DD): ");
         String appointment_date = scanner.next();
-                String appointmentQuery = "INSERT INTO appointments(appointment_id, p_id, d_id, appointment_date) VALUES(?, ?, ?, ?)";
+        if (!doctor.getDoctorById(d_id)) {
+            System.out.println("Doctor not found!");
+            return;
+        }
+
+        if (!patient.getPatientById(p_id)) {
+            System.out.println("Patient not found!");
+            return;
+        }
+
+        String appointmentQuery = "INSERT INTO appointments(appointment_id, p_id, d_id, appointment_date) VALUES(?, ?, ?, ?)";
                 try {
                     PreparedStatement preparedStatement = connection.prepareStatement(appointmentQuery);
                     preparedStatement.setInt(1, appointment_id);
