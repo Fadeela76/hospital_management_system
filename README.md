@@ -78,6 +78,7 @@ Follow prompts to enter required information.
 ![Exit Sytem](media/exitSystem.png)
 
 7. Database Schema<br>
+![Schema](media/db_schema.png)
 
 
 ## Future Improvements
