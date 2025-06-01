@@ -64,11 +64,11 @@ public class Patient {
         }
     }
 
-    public boolean getPatientById(int id){
-        String query = "SELECT * FROM patients WHERE id = ?";
+    public boolean getPatientById(int p_id){
+        String query = "SELECT * FROM patients WHERE p_id = ?";
         try{
             PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setInt(1, id);
+            preparedStatement.setInt(1, p_id);
             ResultSet resultSet = preparedStatement.executeQuery();
             if(resultSet.next()){
                 return true;
