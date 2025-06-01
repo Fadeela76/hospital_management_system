@@ -1,3 +1,4 @@
+//Hospital Management System using java oops, jdbc and mysql.
 package org.example;
 
 import org.example.Patient;
@@ -6,11 +7,13 @@ import java.sql.*;
 import java.util.Scanner;
 
 public class Main{
+    // Database connection details
     private static final String url = "jdbc:mysql://localhost:3306/hospital_management_system";
     private static final String username = "root";
     private static final String password = "Watermelon1@";
 
     public static void main(String[] args) {
+         // Load MySQL JDBC Driver
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
         }catch (ClassNotFoundException e){
@@ -18,9 +21,14 @@ public class Main{
         }
         Scanner scanner = new Scanner(System.in);
         try{
+            // Establish database connection
             Connection connection = DriverManager.getConnection(url, username, password);
+
+            // Create Patient and Doctor objects
             Patient patient = new Patient(connection, scanner);
             Doctor doctor = new Doctor(connection);
+
+            // Main menu loop
             while(true){
                 System.out.println("HOSPITAL MANAGEMENT SYSTEM ");
                 System.out.println("1. Add Patient");
@@ -53,9 +61,11 @@ public class Main{
                         System.out.println();
                         break;
                     case 5:
+                        // Exit the program
                         System.out.println("THANK YOU! FOR USING HOSPITAL MANAGEMENT SYSTEM!!");
                         return;
                     default:
+                        // Handle invalid input
                         System.out.println("Enter valid choice!!!");
                         break;
                 }
@@ -67,8 +77,9 @@ public class Main{
         }
     }
 
-
+ // Method to book an appointment
     public static void bookAppointment(Patient patient, Doctor doctor, Connection connection, Scanner scanner){
+        // Get appointment details from user
         System.out.print("Enter appointment_id: ");
         int appointment_id = scanner.nextInt();
         System.out.print("Enter Patient Id: ");
@@ -77,16 +88,19 @@ public class Main{
         int d_id = scanner.nextInt();
         System.out.print("Enter appointment date (YYYY-MM-DD): ");
         String appointment_date = scanner.next();
+
+        // Validate doctor existence
         if (!doctor.getDoctorById(d_id)) {
             System.out.println("Doctor not found!");
             return;
         }
-
+        // Validate patient existence
         if (!patient.getPatientById(p_id)) {
             System.out.println("Patient not found!");
             return;
         }
-
+        
+       // Insert appointment into the database
         String appointmentQuery = "INSERT INTO appointments(appointment_id, p_id, d_id, appointment_date) VALUES(?, ?, ?, ?)";
                 try {
                     PreparedStatement preparedStatement = connection.prepareStatement(appointmentQuery);
@@ -94,6 +108,8 @@ public class Main{
                     preparedStatement.setInt(2, p_id);
                     preparedStatement.setInt(3, d_id);
                     preparedStatement.setString(4, appointment_date);
+
+                    // Execute insert query
                     int rowsAffected = preparedStatement.executeUpdate();
                     if(rowsAffected>0){
                         System.out.println("Appointment Booked!");
