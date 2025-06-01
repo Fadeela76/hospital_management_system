@@ -44,8 +44,8 @@ This application allows managing patients, doctors, and booking appointments thr
       (Replace mysql-connector-java-x.x.x.jar with the actual MySQL connector JAR filename)
 5. Run the application:
 
----bash
-java -cp .:mysql-connector-java-x.x.x.jar org.example.Main
+   ---bash
+      java -cp .:mysql-connector-java-x.x.x.jar org.example.Main
 
 ## Usage
 
