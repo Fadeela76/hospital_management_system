@@ -33,10 +33,10 @@ This application allows managing patients, doctors, and booking appointments thr
 2. Create and configure the MySQL database and tables as per the schema above.  
 3. Update the database connection credentials in `Main.java` if necessary:  
 
-```java
-private static final String url = "jdbc:mysql://localhost:3306/hospital_management_system";
-private static final String username = "root";
-private static final String password = "your_password";
+   ```java
+   private static final String url = "jdbc:mysql://localhost:3306/hospital_management_system";
+   private static final String username = "root";
+   private static final String password = "your_password";
 4. Compile the Java source files:
 
 ---bash
