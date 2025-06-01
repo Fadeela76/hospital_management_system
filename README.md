@@ -10,7 +10,7 @@ This application allows managing patients, doctors, and booking appointments thr
 - View all doctors  
 - Book appointments between patients and doctors  
 - Basic input validation (checks for existing patients/doctors before booking)
-- 
+  
 ## Technologies Used
 
 - Java (JDK 8+)  
@@ -57,6 +57,9 @@ Upon running, you will see a menu:
 5. Exit  
 Choose the desired option by entering the number.
 Follow prompts to enter required information.
+
+## Snapshots
+
 
 ## Future Improvements
 
