@@ -80,6 +80,9 @@ Follow prompts to enter required information.
 7. Database Schema<br>
 ![Schema](media/db_schema.png)
 
+## Demo
+
+![Working](media/demo.gif)
 
 ## Future Improvements
 
